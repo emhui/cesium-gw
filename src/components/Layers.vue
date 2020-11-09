@@ -28,10 +28,11 @@ export default {
   },
   methods: {
     addWFS() {
+      var wmsUrl = 'http://jp-tyo-dvm.sakurafrp.com:25155/geoserver/cesium/wms'
       var provider = new Cesium.WebMapServiceImageryProvider({
-        url: "http://localhost:8080/geoserver/cesium/wms",
+        // url: "http://localhost:8080/geoserver/cesium/wms",
+        url: wmsUrl,
         layers: "cesium:cc-polyline",
-        // proxy: new Cesium.DefaultProxy("/proxy/"),
         parameters: {
           transparent: true, //是否透明
           format: "image/png",
@@ -41,7 +42,8 @@ export default {
       });
       window.cesiumViewer.imageryLayers.addImageryProvider(provider);
       var provider1 = new Cesium.WebMapServiceImageryProvider({
-        url: "http://localhost:8080/geoserver/cesium/wms",
+        // url: "http://localhost:8080/geoserver/cesium/wms",
+        url: wmsUrl,
         layers: "cesium:cc-point",
         // proxy: new Cesium.DefaultProxy("/proxy/"),
         parameters: {
